@@ -27,8 +27,7 @@ body {
     font-family: 'Manrope', sans-serif;
     min-height: 100vh;
     display: grid;
-    place-items: center;
-    
+    justify-items: center;
     background-color: var(--Light-Grayish-Blue);
     
 }
@@ -36,12 +35,9 @@ body {
 .article_card {
     display: grid;
     grid-template-columns: 260px 430px;
-    max-width: 730px;
     background-color: var(--white);
-    margin: 20px;
     border-radius: 20px;
     margin-top: auto;
-   
     
 }
 
@@ -71,7 +67,7 @@ body {
 
 .author_footer {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     margin-top: 20px;
 }
@@ -98,6 +94,10 @@ body {
     color: var(--Grayish-Blue);
 }
 
+.share_button_close {
+    display: none;
+}
+
 .share_button {
     border: none;
     border-radius: 50%;
@@ -106,6 +106,8 @@ body {
     cursor: pointer;
     text-align: center;
     border-radius: 50;
+    
+   
 }
 
 .share_button:hover {
@@ -121,8 +123,9 @@ body {
     fill: var(--white);
 }
 
-.share {
+.article_card {
     position: relative;
+    
 }
 
 .share_option {
@@ -136,9 +139,21 @@ body {
     background-color: var(--Very-Dark-Grayish-Blue);
     padding: 10px 20px;
     border-radius: 10px;
-    top: -100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    bottom: 30%;
+    right: -6.5%;
+    transform-origin: bottom;
+    transform: scale(0);
+    transition: all 300ms ease-in-out;
+}
+
+.active {
+    visibility: visible;
+    transform: scale(1);
+   
+    transform-origin: bottom;
+    transition: all 300ms ease-in-out;
+    
+   
 }
 
 .share_option::after {
@@ -154,9 +169,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.active {
-    visibility: visible;
-}
+
 
 span {
     text-transform: uppercase;
@@ -188,6 +201,11 @@ li svg {
     fill: var(--white);
 }
 
+li svg:hover {
+    fill: var(--Grayish-Blue);
+
+}
+
 
 @media only screen and (max-width: 800px) {
     .article_card {
@@ -202,7 +220,7 @@ li svg {
     }
 
     .article_content {
-        padding: 20px 30px;
+        padding: 10px 30px;
     }
 
     .title {
@@ -211,6 +229,57 @@ li svg {
 
     h3 {
         font-size: 1rem;
+    }
+
+    .share_option {
+    visibility: collapse;
+    position: absolute;
+    min-width: 317px;
+    justify-content: flex-start;
+    border-radius: 0px 0 20px 20px;
+    padding: 30px;
+    inset: 86% 0;
+    
+    }
+
+    span {
+        margin-right: 20px;
+    }
+
+    .share_option::after {
+        display: none;
+    }
+    
+    .active {
+        visibility: visible;
+        
+    }
+
+    .share_button_close {
+        display: flex;
+        border: none;
+        border-radius: 50%;
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 50;
+        margin-left: auto;
+        background-color: var(--Desaturated-Dark-Blue);
+       
+    }
+    
+    .share_button_closes:hover {
+        background-color: aliceblue;
+    }
+    
+    .share_button_close svg {
+        fill: var(--white);  
+        
+    }
+    
+    .share_button_close svg:active {
+        fill: var(--white);
     }
 }
 
@@ -227,7 +296,7 @@ li svg {
 
 
 .attribution { 
-  align-self: end;
+ 
     margin-top: auto;
 
     font-size: 11px; 
